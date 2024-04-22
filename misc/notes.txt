@@ -1,0 +1,20 @@
+
+
+# original
+https://github.com/grimwm/libballistics.git
+
+# important bug fixes and C++ port
+
+# https://github.com/Jinjinov/external-ballistics-library
+  - [x] fixed bug 1
+  - [ ] bug 2 ...?
+
+# R packaging ideas:
+ * https://jcarroll.com.au/2023/08/11/wrapping-c-code-in-an-r-package/
+ * https://deepr.gagolewski.com/chapter/310-compiled.html
+ * https://www.biostat.jhsph.edu/~rpeng/docs/interface.pdf
+ * https://www.stat.berkeley.edu/~spector/s243/calling.pdf
+ *
+
+# Rcpp ...
+ * http://adv-r.had.co.nz/Rcpp.html
