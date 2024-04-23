@@ -14,7 +14,7 @@ https://github.com/grimwm/libballistics.git
  * https://deepr.gagolewski.com/chapter/310-compiled.html
  * https://www.biostat.jhsph.edu/~rpeng/docs/interface.pdf
  * https://www.stat.berkeley.edu/~spector/s243/calling.pdf
- *
+ * https://bookdown.dongzhuoer.com/hadley/r-pkgs/src
 
 # Rcpp ...
  * http://adv-r.had.co.nz/Rcpp.html
