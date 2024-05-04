@@ -4,11 +4,12 @@
 #include "ballistics/ballistics.h"
 
 // TODO:
-// * add ballistic coef.
+// * how do I use enum types?
+// * manually specifying other drag functions seems to have no effect (bug?)
 // * add attribution
 // * add license
 
-SEXP bsim(SEXP s, SEXP bc, SEXP v, SEXP sh, SEXP angle, SEXP zero, SEXP windspeed, SEXP windangle) {
+SEXP bsim_C(SEXP s, SEXP bc, SEXP df, SEXP v, SEXP sh, SEXP angle, SEXP zero, SEXP windspeed, SEXP windangle) {
 
   int n = length(s);
 
@@ -28,8 +29,8 @@ SEXP bsim(SEXP s, SEXP bc, SEXP v, SEXP sh, SEXP angle, SEXP zero, SEXP windspee
   SET_VECTOR_ELT(res, 4, velocity_);
 
 
-
-  int k=0;
+  //
+  int k = 0;
   Ballistics* solution;
 
   // useful starting values

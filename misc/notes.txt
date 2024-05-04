@@ -10,11 +10,14 @@ https://github.com/grimwm/libballistics.git
   - [ ] bug 2 ...?
 
 # R packaging ideas:
+ * https://blog.davisvaughan.com/posts/2019-03-02-now-you-c-me/#registration
+
  * https://jcarroll.com.au/2023/08/11/wrapping-c-code-in-an-r-package/
  * https://deepr.gagolewski.com/chapter/310-compiled.html
  * https://www.biostat.jhsph.edu/~rpeng/docs/interface.pdf
  * https://www.stat.berkeley.edu/~spector/s243/calling.pdf
  * https://bookdown.dongzhuoer.com/hadley/r-pkgs/src
+
 
 # Rcpp ...
  * http://adv-r.had.co.nz/Rcpp.html

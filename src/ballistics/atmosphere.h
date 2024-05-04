@@ -38,3 +38,4 @@ double atmosphere_correction(double drag_coefficient, double altitude, double ba
 #ifdef __cplusplus
 }
 #endif
+
