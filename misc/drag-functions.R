@@ -1,13 +1,15 @@
 library(lattice)
 library(tactile)
 
-## TODO: doesn't seem to
+
+bsim()
+
 
 
 df <- c('G1', 'G2', 'G3', 'G4', 'G5', 'G6', 'G7', 'G8')
 
 x <- lapply(df, function(i) {
-  .b <- bsim(df = i)
+  .b <- bsim(df = i, windspeed = 10, windangle = 45)
   .b$drag.function <- i
   .b
 })
@@ -17,9 +19,8 @@ x <- do.call('rbind', x)
 xyplot(path ~ range | drag.function, data = x, type = 'l', las = 1, par.settings = tactile.theme(), scales = list(alternating = 1), as.table = TRUE)
 
 
-bsim()
+xyplot(windage ~ range, groups = drag.function, data = x, type = 'l', las = 1, par.settings = tactile.theme(), scales = list(alternating = 1), as.table = TRUE)
 
-plot(windage ~ range, data = x, type = 'l', las = 1)
+xyplot(velocity ~ range, groups = drag.function, data = x, type = 'l', las = 1, par.settings = tactile.theme(), scales = list(alternating = 1), as.table = TRUE)
 
-plot(velocity ~ range, data = x, type = 'l', las = 1)
 

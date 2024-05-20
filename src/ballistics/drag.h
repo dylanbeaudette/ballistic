@@ -37,8 +37,11 @@ static inline double retard(DragFunction drag_function, double drag_coefficient,
   double acceleration = -1;
   double mass = -1;
 
+  // can safely refer to these by integer index from R
+
   switch(drag_function) {
     case G1:
+
       if (vp > 4230) {     acceleration = 1.477404177730177e-04; mass = 1.9565; }
       else if (vp> 3680) { acceleration = 1.920339268755614e-04; mass = 1.925 ; }
       else if (vp> 3450) { acceleration = 2.894751026819746e-04; mass = 1.875 ; }

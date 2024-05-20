@@ -7,6 +7,7 @@
 bsim(
   s = seq(0, 1000, by = 100),
   bc = 0.5,
+  df = c("G1", "G2", "G3", "G4", "G5", "G6", "G7", "G8"),
   v = 1200,
   sh = 1.6,
   angle = 0,
@@ -19,6 +20,8 @@ bsim(
 \item{s}{a}
 
 \item{bc}{a}
+
+\item{df}{drag function: G1, G2, G3, G4, G5, G6, G7, or G8}
 
 \item{v}{a}
 

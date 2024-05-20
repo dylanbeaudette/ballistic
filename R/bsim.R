@@ -29,6 +29,9 @@ bsim <- function(s = seq(0, 1000, by = 100), bc = 0.5, df = c('G1', 'G2', 'G3', 
   df <- factor(df, levels = c('G1', 'G2', 'G3', 'G4', 'G5', 'G6', 'G7', 'G8'))
   df <- as.integer(df)
 
+  # note: drag_function is treated as an enum in C,
+  # but it is really just an integer in the range 1 -> 8
+
   # returns a list
   .res <- .Call('bsim_C',
                as.double(s),
@@ -49,6 +52,15 @@ bsim <- function(s = seq(0, 1000, by = 100), bc = 0.5, df = c('G1', 'G2', 'G3', 
     time = .res[[4]],
     velocity = .res[[5]]
   )
+
+  # truncate results to a reasonable level of precision
+  r$range <- round(r$range, 4)
+  r$path <- round(r$path, 4)
+  r$windage <- round(r$windage, 4)
+  r$velocity <- round(r$velocity, 4)
+
+
+
 
   return(r)
 }

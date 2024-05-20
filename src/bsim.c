@@ -29,6 +29,13 @@ SEXP bsim_C(SEXP s, SEXP bc, SEXP df, SEXP v, SEXP sh, SEXP angle, SEXP zero, SE
   SET_VECTOR_ELT(res, 4, velocity_);
 
 
+  // debugging:
+
+  // check input from R
+
+  // drag_function interpreted from integer: OK
+  // Rprintf("%i\n", asInteger(df));
+
   //
   int k = 0;
   Ballistics* solution;
@@ -58,14 +65,14 @@ SEXP bsim_C(SEXP s, SEXP bc, SEXP df, SEXP v, SEXP sh, SEXP angle, SEXP zero, SE
   // to us, but is required for making a full ballistic solution.
   // It is left here to allow for zero-ing at altitudes (bc) different from the
   // final solution, or to allow for zero's other than 0" (ex: 3" high at 100 yds)
-  double zeroangle = zero_angle(G1, asReal(bc), asReal(v), 1.6, asReal(zero), 0);
+  double zeroangle = zero_angle(asInteger(df), asReal(bc), asReal(v), 1.6, asReal(zero), 0);
 
   // Now we have everything needed to generate a full solution.
   // So we do.  The solution is stored in the pointer "sln" passed as the last argument.
   // k has the number of yards the solution is valid for, also the number of rows in the solution.
   k = Ballistics_solve(
     &solution,
-    G1,
+    asInteger(df),
     asReal(bc),
     asReal(v),
     asReal(sh),
@@ -87,9 +94,10 @@ SEXP bsim_C(SEXP s, SEXP bc, SEXP df, SEXP v, SEXP sh, SEXP angle, SEXP zero, SE
   }
 
 
+  // clean-up local memory
   Ballistics_free(solution);
 
-
+  // R garbage collection OK to proceed
   UNPROTECT(6);
 
   return res;
